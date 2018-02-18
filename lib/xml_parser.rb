@@ -1,8 +1,8 @@
 require 'nokogiri' # remove this later
 require 'pry'
+require 'xpath'
 
-binding.pry
-File.load('./test-data.xml')
+#File.load('./test-data.xml')[i].content
 
 class XmlParser
 
@@ -12,42 +12,45 @@ end
 # is the XML api stable?
 
 
-doc = File.open("./test-data.xml") { |f| Nokogiri::XML(f) }
+doc = Nokogiri::XML(File.open("./test-data.xml")) # File.open("./test-data.xml") { |f| Nokogiri::XML(f) }
 
-collection = doc.xpath('//CommissionedOutstandingCollectionsERPRequestMessage')
-collections.each do |collection|
-	debtor_id = collection.xpath('//DebtorID')
+binding.pry
+collections = doc.xpath('//CommissionedOutstandingCollectionsERPRequestMessage')
 
-	person_name 				= collection.xpath('//PersonName')
-	form_of_adress_code = person_name.xpath('//FormOfAddressCode')
-	given_name 					= person_name.xpath('//GivenName')
-	family_name 				=	person_name.xpath('//FamilyName')
+debtors = collections.each_with_index.map do |collection, i|
 
-	# what is this? <OrganisationFormattedName/>
-
-	physical_adress 		= collection.xpath('//PhysicalAddress')
-	adress_country_code 				= physical_adress.xpath('//CountryCode')
-	street_postal_code	= physical_adress.xpath('//StreetPostalCode')
-	city_name 					= physical_adress.xpath('//CityName')
-	country_code 				= physical_adress.xpath('//CountryCode')
-	street_name 				= physical_adress.xpath('//StreetName')
-
-	communication 			= collection.xpath('//Communication')
-	corr_lang_code 				= communication.xpath('//CorrespondenceLanguageCode') # Is this needed?
-	corr_lang_name 				= communication.xpath('//CorrespondenceLanguageName languageCode')
-
-	telephone 			= communication.xpath('//Telephone')
-	telephone_number 			= telephone.xpath('//Number')
-	subscriber_id 			= telephone_number.xpath('//SubscriberID')
-	phone_country_code 			= telephone_number.xpath('//CountryCode')
-	country_dialling_code 			= telephone_number.xpath('//CountryDiallingCode')
 
               #<NumberDefaultIndicator>true</NumberDefaultIndicator>
               #<NumberDescription languageCode="en"/>
               #<NumberUsageDenialIndicator>false</NumberUsageDenialIndicator>
-	email 			= communication.xpath('//Email')
+
               #<URIDefaultIndicator>true</URIDefaultIndicator>
               #<URIDescription languageCode="en"/>
               #<URIUsageDenialIndicator>false</URIUsageDenialIndicator>
-end
 
+	{
+		debtor_id: collection.xpath('//DebtorID')[i].content,
+
+		form_of_adress_code: collection.xpath('//PersonName//FormOfAddressCode')[i].content,
+		given_name: 				 collection.xpath('//PersonName//GivenName')[i].content,
+		family_name:         collection.xpath('//PersonName//FamilyName')[i].content,
+
+		# what is this? <OrganisationFormattedName/>
+
+		adress_country_code:  collection.xpath('//PhysicalAddress//CountryCode')[i].content,
+		street_postal_code:	 	collection.xpath('//PhysicalAddress//StreetPostalCode')[i].content,
+		city_name: 					 	collection.xpath('//PhysicalAddress//CityName')[i].content,
+		country_code: 				collection.xpath('//PhysicalAddress//CountryCode')[i].content,
+		street_name: 					collection.xpath('//PhysicalAddress//StreetName')[i].content,
+
+		corr_lang_code: 			collection.xpath('//Communication//CorrespondenceLanguageCode')[i].content, # Is this needed?
+		#corr_lang_name: 			collection.xpath('//Communication//CorrespondenceLanguageName languageCode')[i].content,
+
+		subscriber_id: 				collection.xpath('//Telephone//Number//SubscriberID')[i].content,
+		phone_country_code: 	collection.xpath('//Telephone//Number//CountryCode')[i].content,
+		country_dialling_code:collection.xpath('//Telephone//Number//CountryDiallingCode')[i].content,
+
+		email: collection.xpath('//Email//URI')[i].content
+	}
+
+end
