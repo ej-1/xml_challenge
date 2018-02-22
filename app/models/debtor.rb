@@ -22,6 +22,7 @@ class Debtor < ApplicationRecord
 
             # ALSO VALIDATE HOW THE DATA IS. IF IT S IS A INTEGER OR STRING ETC.
             # UNIQUE ID VALUES ETC.
+  validates :system_id, uniqueness: true
 
   def self.import(file)
     debtor_data = XmlParser.parse(file)
