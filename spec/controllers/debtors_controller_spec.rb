@@ -29,21 +29,59 @@ RSpec.describe DebtorsController, type: :controller do
   # Debtor. As you add validations to Debtor, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+			:system_id => "INK003    4628681287",
+			:customer_number => "4628681287",
+			:gender => "0001",
+			:first_name => "hans",
+			:last_name => "fakeson",
+			:iso_code_language => "AT",
+			:iso_code_communication_language => "de",
+			:iso_code_address_country => "AT",
+			:zip => "1111",
+			:city => "Wien",
+			:street => "test 123",
+			:house_number => "test 123",
+			:phone_number => "+4364412312312",
+			:email_address => "hans.fakeson@fake.de",
+			:sap_invoice_number => "010000001282001",
+			:fixed_value => "01",
+			:amount => "269.88",
+			:date_of_export_to_debt_collection => "2017-12-19"
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+  	{
+			:system_id => "4628681287",
+			:customer_number => "4628681287",
+			:gender => "0001",
+			:first_name => "hans",
+			:last_name => "fakeson",
+			:iso_code_language => "AT",
+			:iso_code_communication_language => "de",
+			:iso_code_address_country => "AT",
+			:zip => "1111",
+			:city => "Wien",
+			:street => "test 123",
+			:house_number => "test 123",
+			:phone_number => "+4364412312312",
+			:email_address => "hans.fakeson@fake.de",
+			:sap_invoice_number => "010000001282001",
+			:fixed_value => "01",
+			:amount => "269.88",
+			:date_of_export_to_debt_collection => "2017-12-19"
+    }
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # DebtorsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
+  let(:debtor) { Debtor.create! valid_attributes }
 
   describe "GET #index" do
     it "returns a success response" do
-      debtor = Debtor.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_success
     end
@@ -51,7 +89,6 @@ RSpec.describe DebtorsController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      debtor = Debtor.create! valid_attributes
       get :show, params: {id: debtor.to_param}, session: valid_session
       expect(response).to be_success
     end
