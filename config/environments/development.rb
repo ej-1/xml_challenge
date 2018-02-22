@@ -26,6 +26,9 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  Dir["#{Rails.root}/lib/*.rb"].each {|file| require file }
+  #config.autoload_paths += %W{#{config.root}/lib/*.rb}
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
