@@ -58,7 +58,7 @@ module XmlParser
 				phone_number: collection.xpath("#{adress}//Telephone//SubscriberID")[i].content,
 				# review above
 				#mobile_phone_number: collection.xpath("#{adress}//Communication//MobilePhone")[i].content,
-				# MobilePhone verkar inte finnas.
+				# MobilePhone does not seem to exist.
 				email_address: collection.xpath("#{adress}//Communication//Email//URI")[i].content,
 				sap_invoice_number: collection.xpath('CommissionedOutstandingCollections//Item//ID')[i].content,
 				fixed_value: collection.xpath('CommissionedOutstandingCollections//GroupingCode')[i].content,
