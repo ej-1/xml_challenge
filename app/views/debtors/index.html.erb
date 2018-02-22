@@ -12,14 +12,10 @@
   <tbody>
     <% @debtors.each do |debtor| %>
       <tr>
-        <td><%= link_to 'Show', debtor %></td>
-        <td><%= link_to 'Edit', edit_debtor_path(debtor) %></td>
-        <td><%= link_to 'Destroy', debtor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', debtors_path_url(debtor) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Debtor', new_debtor_path %>
