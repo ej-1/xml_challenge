@@ -5,8 +5,7 @@ require 'xpath'
 
 module XmlParser
 	def self.parse(file)
-		# REMMMBER TO ACTUALYL USE FILE VARIABLE
-		doc = Nokogiri::XML(File.open("./test-data.xml")) # File.open("./test-data.xml") { |f| Nokogiri::XML(f) }
+		doc = Nokogiri::XML(File.open(file)) # File.open("./test-data.xml")
 		hashify(doc)
 	end
 
