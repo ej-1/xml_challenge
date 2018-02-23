@@ -10,16 +10,7 @@ module XmlParser
 		debtors = doc.xpath('//CommissionedOutstandingCollectionsERPRequestMessage')
 		address = '//CommissionedOutstandingCollections//DebtorParty//Address'
 		physical_address = '//CommissionedOutstandingCollections//DebtorParty//Address'
-		item = '//CommissionedOutstandingCollections//Item'
 		debtors.each_with_index.map do |collection, i|
-			invoices = collection.xpath('CommissionedOutstandingCollections//Item').each_with_index.map do |invoice, i|
-				{
-					sap_invoice_number: collection.xpath("#{item}//ID")[i].content,
-					fixed_value: collection.xpath("#{item}//GroupingCode")[i].content,
-					amount: collection.xpath("#{item}//SubmittedAmount")[i].content,
-					date_of_export_to_debt_collection: collection.xpath("#{item}//SubmissionDate")[i].content
-				}
-			end
 			{
 				system_id: collection.xpath('//CommissionedOutstandingCollections//ID')[i].content,
 				customer_number: collection.xpath('//CommissionedOutstandingCollections//DebtorParty//DebtorID')[i].content,
@@ -35,7 +26,10 @@ module XmlParser
 				house_number: collection.xpath("#{physical_address}//StreetName")[i].content.split(' ').last,
 				phone_number: collection.xpath("#{address}//Telephone//SubscriberID")[i].content,
 				email_address: collection.xpath("#{address}//Communication//Email//URI")[i].content,
-				invoices: invoices,
+				sap_invoice_number: collection.xpath('CommissionedOutstandingCollections//Item//ID')[i].content,
+				fixed_value: collection.xpath('CommissionedOutstandingCollections//GroupingCode')[i].content,
+				amount: collection.xpath('CommissionedOutstandingCollections//SubmittedAmount')[i].content,
+				date_of_export_to_debt_collection: collection.xpath('CommissionedOutstandingCollections//SubmissionDate')[i].content
 			}
 		end
 	end
