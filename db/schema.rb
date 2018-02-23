@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20180218173708) do
     t.string "street"
     t.string "house_number"
     t.string "phone_number"
+    t.string "mobile_phone_number"
     t.string "email_address"
     t.string "sap_invoice_number"
     t.string "fixed_value"
