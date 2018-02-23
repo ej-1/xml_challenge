@@ -73,15 +73,15 @@ RSpec.describe Debtor, type: :model do
   end
 
   it "translates gender codes" do
-		Debtor.create! valid_attributes
+    Debtor.create! valid_attributes
     expect(Debtor.last.gender).to eq 'Frau'
     Debtor.delete_all
     valid_attributes[:gender] = '0002'
-		Debtor.create! valid_attributes
+    Debtor.create! valid_attributes
     expect(Debtor.last.gender).to eq 'Herr'
     Debtor.delete_all
     valid_attributes[:gender] = '0003'
-		Debtor.create! valid_attributes
+    Debtor.create! valid_attributes
     expect(Debtor.last.gender).to eq 'Firma'
   end
 end
