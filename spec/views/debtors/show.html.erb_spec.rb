@@ -17,6 +17,7 @@ RSpec.describe "debtors/show", type: :view do
 			:street => "test 123",
 			:house_number => "test 123",
 			:phone_number => "+4364412312312",
+			:mobile_phone_number => "+4364412312312",
 			:email_address => "hans.fakeson@fake.de",
 			:sap_invoice_number => "010000001282001",
 			:fixed_value => "01",

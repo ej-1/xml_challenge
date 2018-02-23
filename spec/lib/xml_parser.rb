@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "debtors/index", type: :view do
+RSpec.describe XmlParser, type: :controller do
 
   let(:valid_attributes) {
     {
@@ -26,16 +26,21 @@ RSpec.describe "debtors/index", type: :view do
     }
   }
 
-  before(:each) do
-  	valid_attributes_two = valid_attributes.dup
-  	valid_attributes_two[:system_id] = '123455'
-    assign(:debtors, [
-      Debtor.create!(valid_attributes),
-      Debtor.create!(valid_attributes_two)
-    ])
+  let(:debtor) { Debtor.create! valid_attributes }
+
+  describe "it " do
+    it "returns a success response" do
+    	binding.pry
+    	klass = Class.new
+    	klass.include(XmlParser)
+    	klass! 'test-data.xml'
+    	Debtor.import! 'test-data.xml'
+      expect(Debtor.count).to eq 3
+    end
   end
 
-  it "renders a list of debtors" do
-    render
-  end
+# this is not a test for the the xmlparser.
+# add a test where the test dose not parse correctly.
+
+
 end
