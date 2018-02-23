@@ -1,10 +1,17 @@
-module XmlParser
+class XmlParser
+
+	def self.import(file)
+    debtor_attributes_hashes = self.parse(file)
+    debtors = debtor_attributes_hashes.map { |debtor_attributes| Debtor.new(debtor_attributes) }
+    self.validate_and_save_imported_debtors!(debtors)
+	end
+
+	private
+
 	def self.parse(file)
 		doc = Nokogiri::XML(File.open(file)) # File.open("./test-data.xml")
 		hashify(doc)
 	end
-
-	private
 
 	def self.hashify(doc)
 		debtors = doc.xpath('//CommissionedOutstandingCollectionsERPRequestMessage')
@@ -34,4 +41,21 @@ module XmlParser
 			}
 		end
 	end
+
+  def self.validate_and_save_imported_debtors!(debtors)
+    if debtors.map(&:valid?)
+      self.save_imported_debtors!(debtors)
+    else
+      # call debtor.errors.messages to check what was invalid.
+      debtors
+    end
+  end
+
+  def self.save_imported_debtors!(debtors)
+    debtors.each do |debtor|
+      # picked customer_number as attribute to see if unique record.
+      Debtor.where(customer_number: debtor[:customer_number]).
+        first_or_create!(debtor.attributes)
+    end
+  end
 end
