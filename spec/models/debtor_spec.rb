@@ -65,25 +65,23 @@ RSpec.describe Debtor, type: :model do
   end
 
 	it "fails to translate gender codes" do
-	debtor = Debtor.new invalid_attributes
-	expect(debtor).to_not be_valid
-	expect(debtor.errors.messages[:gender]).
-		to eq ["can't be blank", "is not included in the list"]
-	expect(Debtor.count).to eq 0
-end
+    debtor = Debtor.new invalid_attributes
+    expect(debtor).to_not be_valid
+    expect(debtor.errors.messages[:gender]).
+      to eq ["can't be blank", "is not included in the list"]
+    expect(Debtor.count).to eq 0
+	end
 
-  describe "#import" do
-    it "saves new debtors" do
-			Debtor.import 'test-data.xml'
-      expect(Debtor.count).to eq 3
-    end
-
-    it "translates gender codes" do
-			Debtor.import 'test-data.xml'
-      expect(Debtor.first.gender).to eq 'Frau'
-      expect(Debtor.second.gender).to eq 'Frau'
-      expect(Debtor.last.gender).to eq 'Herr'
-    end
+  it "translates gender codes" do
+		Debtor.create! valid_attributes
+    expect(Debtor.last.gender).to eq 'Frau'
+    Debtor.delete_all
+    valid_attributes[:gender] = '0002'
+		Debtor.create! valid_attributes
+    expect(Debtor.last.gender).to eq 'Herr'
+    Debtor.delete_all
+    valid_attributes[:gender] = '0003'
+		Debtor.create! valid_attributes
+    expect(Debtor.last.gender).to eq 'Firma'
   end
-
 end
