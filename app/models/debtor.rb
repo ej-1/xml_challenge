@@ -15,7 +15,7 @@ class Debtor < ApplicationRecord
 
   # add more validations in the future for data formats.
   validates :system_id, uniqueness: true
-  validates :gender, inclusion: { in: ['Frau', 'Herr', 'Firma'] } # write spec to if this fails.
+  validates :gender, inclusion: { in: ['Frau', 'Herr', 'Firma'] }
 
   private
 
