@@ -1,8 +1,7 @@
 class Debtor < ApplicationRecord
   include XmlParser
 
-  # ADD TRANSLATION HAS KEYS FOR GENDERS etc.
-  # CONSIDERS USING SCOPES IF NECESSARY.
+  GENDER_TRANSLATION = {'0001' => 'Frau', '0002' => 'Herr', '0003' => 'Firma'}
 
   # WHAT ABOUT DOUBLE RACING? TWO PEOPLE RUNNING THE SAME METHOD AT ONCE.
   # adress_line misspelled? Should be address?
@@ -23,9 +22,11 @@ class Debtor < ApplicationRecord
             # ALSO VALIDATE HOW THE DATA IS. IF IT S IS A INTEGER OR STRING ETC.
             # UNIQUE ID VALUES ETC.
   validates :system_id, uniqueness: true
+  validates :gender, inclusion: { in: ['Frau', 'Herr', 'Firma'] } # write spec to if this fails.
 
   def self.import(file)
     debtor_data = XmlParser.parse(file)
+    debtor_data.each { |debtor| debtor[:gender] = GENDER_TRANSLATION[debtor[:gender]] }
     debtors = debtor_data.map { |debtor| self.new(debtor) }
     if debtors.map(&:valid?)  # rename to DebtorsXmlParser
       debtor_data.each do |debtor| # picked customer_number to see if unique record.
