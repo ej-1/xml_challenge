@@ -17,7 +17,7 @@ class CreateDebtors < ActiveRecord::Migration[5.1]
       t.string :house_number
       #t.string :second_adress_line
       t.string :phone_number
-      #t.string :mobile_phone_number
+      t.string :mobile_phone_number
       t.string :email_address
       t.string :sap_invoice_number
       t.string :fixed_value

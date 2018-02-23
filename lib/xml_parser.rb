@@ -25,6 +25,7 @@ module XmlParser
 				street: collection.xpath("#{physical_address}//StreetName")[i].content.split(' ').first,
 				house_number: collection.xpath("#{physical_address}//StreetName")[i].content.split(' ').last,
 				phone_number: collection.xpath("#{address}//Telephone//SubscriberID")[i].content,
+				mobile_phone_number: collection.xpath("#{address}//Telephone//SubscriberID")[i].content,
 				email_address: collection.xpath("#{address}//Communication//Email//URI")[i].content,
 				sap_invoice_number: collection.xpath('CommissionedOutstandingCollections//Item//ID')[i].content,
 				fixed_value: collection.xpath('CommissionedOutstandingCollections//GroupingCode')[i].content,
