@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Challenge tasks
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Set up a rails project
+Parse XML file
+Create 3 debtor profiles from the file
+Create basic front-end that allows for selecting one of the 3 profiles and viewing each profile’s content in more detail
+Deploy on Heroku or some similar free service, share code on public Github and send us a links to both
