@@ -1,5 +1,8 @@
 class XmlParser
 
+  @@ADDRESS = '//CommissionedOutstandingCollections//DebtorParty//Address'
+  @@PHYSICAL_ADDRESS = '//CommissionedOutstandingCollections//DebtorParty//Address'
+
   def self.import(file)
     debtor_attributes_hashes = self.parse(file)
     clean(debtor_attributes_hashes)
@@ -22,25 +25,23 @@ class XmlParser
 
   def self.hashify(doc)
     debtors = doc.xpath('//CommissionedOutstandingCollectionsERPRequestMessage')
-    address = '//CommissionedOutstandingCollections//DebtorParty//Address'
-    physical_address = '//CommissionedOutstandingCollections//DebtorParty//Address'
     debtors.each_with_index.map do |collection, i|
       {
         system_id: collection.xpath('//CommissionedOutstandingCollections//ID')[i].content,
         customer_number: collection.xpath('//CommissionedOutstandingCollections//DebtorParty//DebtorID')[i].content,
-        gender: collection.xpath("#{address}//PersonName//FormOfAddressCode")[i].content,
-        first_name: collection.xpath("#{address}//PersonName//GivenName")[i].content,
-        last_name: collection.xpath("#{address}//PersonName//FamilyName")[i].content,
-        iso_code_language: collection.xpath("#{physical_address}//CountryName")[i].content,
-        iso_code_communication_language: collection.xpath("#{address}//Communication//CorrespondenceLanguageName")[i].attributes['languageCode'].value,
-        iso_code_address_country: collection.xpath("#{physical_address}//CountryCode")[i].content,
-        zip: collection.xpath("#{physical_address}//StreetPostalCode")[i].content,
-        city: collection.xpath("#{physical_address}//CityName")[i].content,
-        street: collection.xpath("#{physical_address}//StreetName")[i].content.split(' ').first,
-        house_number: collection.xpath("#{physical_address}//StreetName")[i].content.split(' ').last,
-        phone_number: collection.xpath("#{address}//Telephone//SubscriberID")[i].content,
-        mobile_phone_number: collection.xpath("#{address}//Telephone//SubscriberID")[i].content,
-        email_address: collection.xpath("#{address}//Communication//Email//URI")[i].content,
+        gender: collection.xpath("#{@@ADDRESS}//PersonName//FormOfAddressCode")[i].content,
+        first_name: collection.xpath("#{@@ADDRESS}//PersonName//GivenName")[i].content,
+        last_name: collection.xpath("#{@@ADDRESS}//PersonName//FamilyName")[i].content,
+        iso_code_language: collection.xpath("#{@@PHYSICAL_ADDRESS}//CountryName")[i].content,
+        iso_code_communication_language: collection.xpath("#{@@ADDRESS}//Communication//CorrespondenceLanguageName")[i].attributes['languageCode'].value,
+        iso_code_address_country: collection.xpath("#{@@PHYSICAL_ADDRESS  }//CountryCode")[i].content,
+        zip: collection.xpath("#{@@PHYSICAL_ADDRESS}//StreetPostalCode")[i].content,
+        city: collection.xpath("#{@@PHYSICAL_ADDRESS}//CityName")[i].content,
+        street: collection.xpath("#{@@PHYSICAL_ADDRESS}//StreetName")[i].content.split(' ').first,
+        house_number: collection.xpath("#{@@PHYSICAL_ADDRESS}//StreetName")[i].content.split(' ').last,
+        phone_number: collection.xpath("#{@@ADDRESS}//Telephone//SubscriberID")[i].content,
+        mobile_phone_number: collection.xpath("#{@@ADDRESS}//Telephone//SubscriberID")[i].content,
+        email_address: collection.xpath("#{@@ADDRESS}//Communication//Email//URI")[i].content,
       }
     end
   end
@@ -50,18 +51,13 @@ class XmlParser
   end
 
   def self.validate_and_save_imported_debtors!(debtors)
-    if debtors.map(&:valid?)
-      self.save_imported_debtors!(debtors)
-    else
-      # call debtor.errors.messages to check what was invalid.
-      debtors
-    end
+    self.save_imported_debtors!(debtors) if debtors.map(&:valid?)
   end
 
   def self.save_imported_debtors!(debtors)
     debtors.each do |debtor|
-      # picked customer_number as attribute to see if unique record.
-      Debtor.where(customer_number: debtor[:customer_number]).
+      # picked system_id as attribute to see if unique record.
+      Debtor.where(system_id: debtor[:customer_number]).
         first_or_create!(debtor.attributes)
     end
   end
