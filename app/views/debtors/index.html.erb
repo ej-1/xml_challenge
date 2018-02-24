@@ -12,7 +12,7 @@
   <tbody>
     <% @debtors.each do |debtor| %>
       <tr>
-        <td><%= link_to 'Show', debtors_path_url(debtor) %></td>
+        <td><%= link_to 'Show', debtor_path_url(debtor) %></td>
         <td><%= debtor.system_id %></td>
         <td><%= debtor.customer_number %></td>
       </tr>
