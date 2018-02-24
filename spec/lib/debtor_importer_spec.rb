@@ -27,7 +27,7 @@ RSpec.describe DebtorImporter do
   describe "#import" do
 
     it "saves new debtors" do
-			DebtorImporter.import 'test-data.xml'
+      DebtorImporter.import 'test-data.xml'
       expect(Debtor.count).to eq 3
     end
 
