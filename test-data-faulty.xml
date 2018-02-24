@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<n0:CommissionedOutstandingCollectionsERPBulkRequest xmlns:n0="http://sap.com/xi/FICA/Global2" xmlns:prx="urn:sap.com:proxy:HEQ:/1SAI/TAS657B8E8F6767F6F29354:751">
+  <MessageHeader>
+    <CreationDateTime>2017-12-19T16:59:10.468934Z</CreationDateTime>
+    <SenderParty>
+      <InternalID>BS_SAP_ERP_HEQ_200</InternalID>
+    </SenderParty>
+    <RecipientParty>
+      <InternalID>BS_</InternalID>
+    </RecipientParty>
+  </MessageHeader>
+  <CommissionedOutstandingCollectionsERPRequestMessage>
+    <MessageHeader>
+      <CreationDateTime>2017-12-19T16:59:10.468934Z</CreationDateTime>
+      <SenderParty>
+        <InternalID>BS_SAP_ERP_HEQ_200</InternalID>
+      </SenderParty>
+      <RecipientParty>
+        <InternalID>BS_</InternalID>
+      </RecipientParty>
+    </MessageHeader>
+    <CommissionedOutstandingCollections>
+      <ID>INK003    4628681287</ID>
+      <DebtorParty>
+        <DebtorID>4628681287</DebtorID>
+        <Address>
+          <OrganisationFormattedName/>
+          <OrganisationFormattedName/>
+          <OrganisationFormattedName/>
+          <OrganisationFormattedName/>
+          <PersonName>
+            <FormOfAddressCode>0009</FormOfAddressCode>
+            <GivenName>hans</GivenName>
+            <FamilyName>StreckeRG</FamilyName>
+          </PersonName>
+          <PhysicalAddress>
+            <CountryCode>AT</CountryCode>
+            <CountryName languageCode="de">AT</CountryName>
+            <StreetPostalCode>1111</StreetPostalCode>
+            <CityName>Wien</CityName>
+            <StreetName>test 123</StreetName>
+          </PhysicalAddress>
+          <Communication>
+            <CorrespondenceLanguageCode>de</CorrespondenceLanguageCode>
+            <CorrespondenceLanguageName languageCode="de"/>
+            <Telephone>
+              <Number>
+                <SubscriberID>+4364412312312</SubscriberID>
+                <CountryCode>AT</CountryCode>
+                <CountryDiallingCode>+</CountryDiallingCode>
+              </Number>
+              <NumberDefaultIndicator>true</NumberDefaultIndicator>
+              <NumberDescription languageCode="en"/>
+              <NumberUsageDenialIndicator>false</NumberUsageDenialIndicator>
+            </Telephone>
+            <Email>
+              <URI>hans.streckeRG@home24.de</URI>
+              <URIDefaultIndicator>true</URIDefaultIndicator>
+              <URIDescription languageCode="en"/>
+              <URIUsageDenialIndicator>false</URIUsageDenialIndicator>
+            </Email>
+          </Communication>
+        </Address>
+      </DebtorParty>
+      <Item>
+        <ID>010000001282001</ID>
+        <GroupingCode>01</GroupingCode>
+        <SubmittedAmount currencyCode="EUR">269.88</SubmittedAmount>
+        <SubmissionDate>2017-12-19</SubmissionDate>
+        <RecalledAmount currencyCode="EUR">0.0</RecalledAmount>
+        <n1:ZZInvoiceID xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">0000000090003174</n1:ZZInvoiceID>
+        <n1:ZZOrderID xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">1004024193</n1:ZZOrderID>
+        <n1:ZZInvoiceDate xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-11-21</n1:ZZInvoiceDate>
+        <n1:ZZFirstDunning xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-12-06</n1:ZZFirstDunning>
+        <n1:ZZInvoiceAmount xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">269.88</n1:ZZInvoiceAmount>
+      </Item>
+      <Item>
+        <ID>010000001399001</ID>
+        <GroupingCode>01</GroupingCode>
+        <SubmittedAmount currencyCode="EUR">29.99</SubmittedAmount>
+        <SubmissionDate>2017-12-19</SubmissionDate>
+        <RecalledAmount currencyCode="EUR">0.0</RecalledAmount>
+        <n1:ZZInvoiceID xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">0000000400001463</n1:ZZInvoiceID>
+        <n1:ZZOrderID xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">1004024248</n1:ZZOrderID>
+        <n1:ZZInvoiceDate xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-11-22</n1:ZZInvoiceDate>
+        <n1:ZZFirstDunning xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-12-06</n1:ZZFirstDunning>
+        <n1:ZZInvoiceAmount xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">29.99</n1:ZZInvoiceAmount>
+      </Item>
+      <Item>
+        <ID>054000000001001</ID>
+        <GroupingCode>01</GroupingCode>
+        <SubmittedAmount currencyCode="EUR">5.0</SubmittedAmount>
+        <SubmissionDate>2017-12-19</SubmissionDate>
+        <RecalledAmount currencyCode="EUR">0.0</RecalledAmount>
+        <n1:ZZInvoiceDate xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2018-01-31</n1:ZZInvoiceDate>
+        <n1:ZZFirstDunning xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2018-01-31</n1:ZZFirstDunning>
+        <n1:ZZInvoiceAmount xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">5.00</n1:ZZInvoiceAmount>
+      </Item>
+      <Item>
+        <ID>056000000000001</ID>
+        <GroupingCode>01</GroupingCode>
+        <SubmittedAmount currencyCode="EUR">5.0</SubmittedAmount>
+        <SubmissionDate>2017-12-19</SubmissionDate>
+        <RecalledAmount currencyCode="EUR">0.0</RecalledAmount>
+        <n1:ZZInvoiceDate xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-12-31</n1:ZZInvoiceDate>
+        <n1:ZZFirstDunning xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-12-31</n1:ZZFirstDunning>
+        <n1:ZZInvoiceAmount xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">5.00</n1:ZZInvoiceAmount>
+      </Item>
+    </CommissionedOutstandingCollections>
+  </CommissionedOutstandingCollectionsERPRequestMessage>
+  <CommissionedOutstandingCollectionsERPRequestMessage>
+    <MessageHeader>
+      <CreationDateTime>2017-12-19T16:59:10.468934Z</CreationDateTime>
+      <SenderParty>
+        <InternalID>BS_SAP_ERP_HEQ_200</InternalID>
+      </SenderParty>
+      <RecipientParty>
+        <InternalID>BS_</InternalID>
+      </RecipientParty>
+    </MessageHeader>
+    <CommissionedOutstandingCollections>
+      <ID>INK003    4729426071</ID>
+      <DebtorParty>
+        <DebtorID>4729426071</DebtorID>
+        <Address>
+          <OrganisationFormattedName/>
+          <OrganisationFormattedName/>
+          <OrganisationFormattedName/>
+          <OrganisationFormattedName/>
+          <PersonName>
+            <FormOfAddressCode>0001</FormOfAddressCode>
+            <GivenName>Hans</GivenName>
+            <FamilyName>Retoure</FamilyName>
+          </PersonName>
+          <PhysicalAddress>
+            <CountryCode>AT</CountryCode>
+            <CountryName languageCode="de">AT</CountryName>
+            <StreetPostalCode>1111</StreetPostalCode>
+            <CityName>Wien</CityName>
+            <StreetName>test 123</StreetName>
+          </PhysicalAddress>
+          <Communication>
+            <CorrespondenceLanguageCode>de</CorrespondenceLanguageCode>
+            <CorrespondenceLanguageName languageCode="de"/>
+            <Telephone>
+              <Number>
+                <SubscriberID>+4364412121212</SubscriberID>
+                <CountryCode>AT</CountryCode>
+                <CountryDiallingCode>+</CountryDiallingCode>
+              </Number>
+              <NumberDefaultIndicator>true</NumberDefaultIndicator>
+              <NumberDescription languageCode="en"/>
+              <NumberUsageDenialIndicator>false</NumberUsageDenialIndicator>
+            </Telephone>
+            <Email>
+              <URI>hans.retoure@home24.de</URI>
+              <URIDefaultIndicator>true</URIDefaultIndicator>
+              <URIDescription languageCode="en"/>
+              <URIUsageDenialIndicator>false</URIUsageDenialIndicator>
+            </Email>
+          </Communication>
+        </Address>
+      </DebtorParty>
+      <Item>
+        <ID>010000000805001</ID>
+        <GroupingCode>01</GroupingCode>
+        <SubmittedAmount currencyCode="EUR">99.99</SubmittedAmount>
+        <SubmissionDate>2017-12-19</SubmissionDate>
+        <RecalledAmount currencyCode="EUR">0.0</RecalledAmount>
+        <n1:ZZInvoiceID xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">0000000090001869</n1:ZZInvoiceID>
+        <n1:ZZOrderID xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">1004023807</n1:ZZOrderID>
+        <n1:ZZInvoiceDate xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-11-06</n1:ZZInvoiceDate>
+        <n1:ZZFirstDunning xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-11-22</n1:ZZFirstDunning>
+        <n1:ZZInvoiceAmount xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">99.99</n1:ZZInvoiceAmount>
+      </Item>
+      <Item>
+        <ID>054000000000001</ID>
+        <GroupingCode>01</GroupingCode>
+        <SubmittedAmount currencyCode="EUR">5.0</SubmittedAmount>
+        <SubmissionDate>2017-12-19</SubmissionDate>
+        <RecalledAmount currencyCode="EUR">0.0</RecalledAmount>
+        <n1:ZZInvoiceDate xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-12-31</n1:ZZInvoiceDate>
+        <n1:ZZFirstDunning xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-12-31</n1:ZZFirstDunning>
+        <n1:ZZInvoiceAmount xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">5.00</n1:ZZInvoiceAmount>
+      </Item>
+      <Item>
+        <ID>059000000005001</ID>
+        <GroupingCode>01</GroupingCode>
+        <SubmittedAmount currencyCode="EUR">5.0</SubmittedAmount>
+        <SubmissionDate>2017-12-19</SubmissionDate>
+        <RecalledAmount currencyCode="EUR">0.0</RecalledAmount>
+        <n1:ZZInvoiceDate xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-12-06</n1:ZZInvoiceDate>
+        <n1:ZZFirstDunning xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-12-06</n1:ZZFirstDunning>
+        <n1:ZZInvoiceAmount xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">5.00</n1:ZZInvoiceAmount>
+      </Item>
+    </CommissionedOutstandingCollections>
+  </CommissionedOutstandingCollectionsERPRequestMessage>
+  <CommissionedOutstandingCollectionsERPRequestMessage>
+    <MessageHeader>
+      <CreationDateTime>2017-12-19T16:59:10.468934Z</CreationDateTime>
+      <SenderParty>
+        <InternalID>BS_SAP_ERP_HEQ_200</InternalID>
+      </SenderParty>
+      <RecipientParty>
+        <InternalID>BS_</InternalID>
+      </RecipientParty>
+    </MessageHeader>
+    <CommissionedOutstandingCollections>
+      <ID>INK003    4778998085</ID>
+      <DebtorParty>
+        <DebtorID>4778998085</DebtorID>
+        <Address>
+          <OrganisationFormattedName/>
+          <OrganisationFormattedName/>
+          <OrganisationFormattedName/>
+          <OrganisationFormattedName/>
+          <PersonName>
+            <FormOfAddressCode>0002</FormOfAddressCode>
+            <GivenName>Test</GivenName>
+            <FamilyName>Testhjkad</FamilyName>
+          </PersonName>
+          <PhysicalAddress>
+            <CountryCode>AT</CountryCode>
+            <CountryName languageCode="de">AT</CountryName>
+            <StreetPostalCode>1000</StreetPostalCode>
+            <CityName>Wien</CityName>
+            <StreetName>Teststr. 123</StreetName>
+          </PhysicalAddress>
+          <Communication>
+            <CorrespondenceLanguageCode>de</CorrespondenceLanguageCode>
+            <CorrespondenceLanguageName languageCode="de"/>
+            <Telephone>
+              <Number>
+                <SubscriberID>+43644123456</SubscriberID>
+                <CountryCode>AT</CountryCode>
+                <CountryDiallingCode>+</CountryDiallingCode>
+              </Number>
+              <NumberDefaultIndicator>true</NumberDefaultIndicator>
+              <NumberDescription languageCode="en"/>
+              <NumberUsageDenialIndicator>false</NumberUsageDenialIndicator>
+            </Telephone>
+            <Email>
+              <URI>florian.leinfelder+at1018@home24.de</URI>
+              <URIDefaultIndicator>true</URIDefaultIndicator>
+              <URIDescription languageCode="en"/>
+              <URIUsageDenialIndicator>false</URIUsageDenialIndicator>
+            </Email>
+          </Communication>
+        </Address>
+      </DebtorParty>
+      <Item>
+        <ID>010000000759001</ID>
+        <GroupingCode>01</GroupingCode>
+        <SubmittedAmount currencyCode="EUR">169.99</SubmittedAmount>
+        <SubmissionDate>2017-12-19</SubmissionDate>
+        <RecalledAmount currencyCode="EUR">0.0</RecalledAmount>
+        <n1:ZZInvoiceID xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">0000000090001679</n1:ZZInvoiceID>
+        <n1:ZZOrderID xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">1004023496</n1:ZZOrderID>
+        <n1:ZZInvoiceDate xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-11-03</n1:ZZInvoiceDate>
+        <n1:ZZFirstDunning xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-11-22</n1:ZZFirstDunning>
+        <n1:ZZInvoiceAmount xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">169.99</n1:ZZInvoiceAmount>
+      </Item>
+      <Item>
+        <ID>055000000001001</ID>
+        <GroupingCode>01</GroupingCode>
+        <SubmittedAmount currencyCode="EUR">5.0</SubmittedAmount>
+        <SubmissionDate>2017-12-19</SubmissionDate>
+        <RecalledAmount currencyCode="EUR">0.0</RecalledAmount>
+        <n1:ZZInvoiceDate xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-12-31</n1:ZZInvoiceDate>
+        <n1:ZZFirstDunning xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-12-31</n1:ZZFirstDunning>
+        <n1:ZZInvoiceAmount xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">5.00</n1:ZZInvoiceAmount>
+      </Item>
+      <Item>
+        <ID>059000000006001</ID>
+        <GroupingCode>01</GroupingCode>
+        <SubmittedAmount currencyCode="EUR">5.0</SubmittedAmount>
+        <SubmissionDate>2017-12-19</SubmissionDate>
+        <RecalledAmount currencyCode="EUR">0.0</RecalledAmount>
+        <n1:ZZInvoiceDate xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-12-06</n1:ZZInvoiceDate>
+        <n1:ZZFirstDunning xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">2017-12-06</n1:ZZFirstDunning>
+        <n1:ZZInvoiceAmount xmlns:n1="http://www.home24.de/H24_ERP/Inkasso">5.00</n1:ZZInvoiceAmount>
+      </Item>
+    </CommissionedOutstandingCollections>
+  </CommissionedOutstandingCollectionsERPRequestMessage>
+</n0:CommissionedOutstandingCollectionsERPBulkRequest>

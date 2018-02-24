@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Debtors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @debtors.each do |debtor| %>
+      <tr>
+        <td><%= link_to 'Show', debtor_path(debtor) %></td>
+        <td><%= debtor.system_id %></td>
+        <td><%= debtor.customer_number %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

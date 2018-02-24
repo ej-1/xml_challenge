@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<ul>
+  <% @debtor.attributes.except("id", "created_at", "updated_at")
+    .each do |field, attribute| %>
+    <li><strong><%= field %></strong> <%= attribute %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back', debtors_path %>
