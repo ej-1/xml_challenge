@@ -1,4 +1,4 @@
-require './lib/xml_parser'
+require './lib/debtor_importer'
 namespace :import do
 
   desc 'import debtors'

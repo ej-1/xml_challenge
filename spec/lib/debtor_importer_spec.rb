@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe XmlParser do
+RSpec.describe DebtorImporter do
 
   let(:valid_attributes) {
     {
@@ -27,18 +27,18 @@ RSpec.describe XmlParser do
   describe "#import" do
 
     it "saves new debtors" do
-			XmlParser.import 'test-data.xml'
+			DebtorImporter.import 'test-data.xml'
       expect(Debtor.count).to eq 3
     end
 
     it "fails to save" do
-      expect { XmlParser.import 'test-data-faulty.xml' }.
+      expect { DebtorImporter.import 'test-data-faulty.xml' }.
         to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Gender can't be blank, Gender is not included in the list")
       expect(Debtor.count).to eq 0
     end
 
     it "removes blankspace from system_id" do
-      XmlParser.import 'test-data.xml'
+      DebtorImporter.import 'test-data.xml'
       expect(Debtor.first.system_id).to eq 'INK0034628681287'
     end
   end

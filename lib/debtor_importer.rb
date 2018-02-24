@@ -1,4 +1,4 @@
-class XmlParser
+class DebtorImporter
 
   @@ADDRESS = '//CommissionedOutstandingCollections//DebtorParty//Address'
   @@PHYSICAL_ADDRESS = '//CommissionedOutstandingCollections//DebtorParty//Address'
