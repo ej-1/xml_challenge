@@ -2,7 +2,7 @@ class DebtorsController < ApplicationController
   before_action :set_debtor, only: [:show]
 
   def index
-    @debtors = Debtor.all # just doing this in challenge, otherwise use i.e. pagination.
+    @debtors = Debtor.all # just doing .all in challenge, otherwise use e.g. pagination.
   end
 
   def show
