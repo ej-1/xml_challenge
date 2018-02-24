@@ -1,23 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<div>
-  <ul>
-    <li><%= @debtor.system_id %></li>
-    <li><%= @debtor.customer_number %></li>
-    <li><%= @debtor.gender %></li>
-    <li><%= @debtor.first_name %></li>
-    <li><%= @debtor.last_name %></li>
-    <li><%= @debtor.iso_code_language %></li>
-    <li><%= @debtor.iso_code_communication_language %></li>
-    <li><%= @debtor.iso_code_address_country %></li>
-    <li><%= @debtor.zip %></li>
-    <li><%= @debtor.city %></li>
-    <li><%= @debtor.street %></li>
-    <li><%= @debtor.house_number %></li>
-    <li><%= @debtor.phone_number %></li>
-    <li><%= @debtor.mobile_phone_number %></li>
-    <li><%= @debtor.email_address %></li>
-  </ul>
-</div>
+<ul>
+  <% @debtor.attributes.except("id", "created_at", "updated_at")
+    .each do |field, attribute| %>
+    <li><strong><%= field %></strong> <%= attribute %></li>
+  <% end %>
+</ul>
 
 <%= link_to 'Back', debtor_path_url %>
