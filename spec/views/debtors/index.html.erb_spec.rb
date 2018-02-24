@@ -4,7 +4,7 @@ RSpec.describe "debtors/index", type: :view do
 
   let(:valid_attributes) {
     {
-      :system_id => "INK003    4628681287",
+      :system_id => "INK0034628681287",
       :customer_number => "4628681287",
       :gender => "0001",
       :first_name => "hans",
@@ -23,8 +23,8 @@ RSpec.describe "debtors/index", type: :view do
   }
 
   before(:each) do
-  	valid_attributes_two = valid_attributes.dup
-  	valid_attributes_two[:system_id] = '123455'
+    valid_attributes_two = valid_attributes.dup
+    valid_attributes_two[:system_id] = '123455'
     assign(:debtors, [
       Debtor.create!(valid_attributes),
       Debtor.create!(valid_attributes_two)
@@ -32,6 +32,12 @@ RSpec.describe "debtors/index", type: :view do
   end
 
   it "renders a list of debtors" do
-    render
+    # can add more specs in the future.
+    expect(render).to include('<td><a href="/debtors/1">Show</a></td>')
+    expect(render).to include('<td>INK0034628681287</td>')
+    expect(render).to include('<td>4628681287</td>')
+    expect(render).to include('<td><a href="/debtors/2">Show</a></td>')
+    expect(render).to include('<td>123455</td>')
+    expect(render).to include('<td>4628681287</td>')
   end
 end
