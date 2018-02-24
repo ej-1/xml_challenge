@@ -9,9 +9,7 @@ class Debtor < ApplicationRecord
             :iso_code_language, :iso_code_language,
             :iso_code_communication_language, :iso_code_address_country,
             :zip, :city, :street, :house_number,
-            :phone_number, :mobile_phone_number, :email_address,
-            :sap_invoice_number, :fixed_value, :amount, # (with ISO currency code)
-            :date_of_export_to_debt_collection, presence: true
+            :phone_number, :mobile_phone_number, :email_address, presence: true
 
   # add more validations in the future for data formats.
   validates :system_id, uniqueness: true

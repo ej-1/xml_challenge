@@ -44,11 +44,7 @@ RSpec.describe DebtorsController, type: :controller do
       :house_number => "test 123",
       :phone_number => "+4364412312312",
       :mobile_phone_number => "+4364412312312",
-      :email_address => "hans.fakeson@fake.de",
-      :sap_invoice_number => "010000001282001",
-      :fixed_value => "01",
-      :amount => "269.88",
-      :date_of_export_to_debt_collection => "2017-12-19"
+      :email_address => "hans.fakeson@fake.de"
     }
   }
 

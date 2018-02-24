@@ -28,10 +28,6 @@ ActiveRecord::Schema.define(version: 20180218173708) do
     t.string "phone_number"
     t.string "mobile_phone_number"
     t.string "email_address"
-    t.string "sap_invoice_number"
-    t.string "fixed_value"
-    t.float "amount"
-    t.datetime "date_of_export_to_debt_collection"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

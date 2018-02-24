@@ -19,10 +19,6 @@ class CreateDebtors < ActiveRecord::Migration[5.1]
       t.string :phone_number
       t.string :mobile_phone_number
       t.string :email_address
-      t.string :sap_invoice_number
-      t.string :fixed_value
-      t.float :amount # (with ISO currency code)
-      t.timestamp :date_of_export_to_debt_collection
 
       t.timestamps
     end

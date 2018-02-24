@@ -2,6 +2,7 @@ class XmlParser
 
   def self.import(file)
     debtor_attributes_hashes = self.parse(file)
+    clean(debtor_attributes_hashes)
     debtors = debtor_attributes_hashes.map { |debtor_attributes| Debtor.new(debtor_attributes) }
     self.validate_and_save_imported_debtors!(debtors)
   end
@@ -11,6 +12,12 @@ class XmlParser
   def self.parse(file)
     doc = Nokogiri::XML(File.open(file)) # File.open("./test-data.xml")
     hashify(doc)
+  end
+
+  def self.clean(attributes_hashes)
+    attributes_hashes.each do |hash|
+      hash[:system_id] = self.remove_blankspace(hash[:system_id])
+    end
   end
 
   def self.hashify(doc)
@@ -34,12 +41,12 @@ class XmlParser
         phone_number: collection.xpath("#{address}//Telephone//SubscriberID")[i].content,
         mobile_phone_number: collection.xpath("#{address}//Telephone//SubscriberID")[i].content,
         email_address: collection.xpath("#{address}//Communication//Email//URI")[i].content,
-        sap_invoice_number: collection.xpath('CommissionedOutstandingCollections//Item//ID')[i].content,
-        fixed_value: collection.xpath('CommissionedOutstandingCollections//GroupingCode')[i].content,
-        amount: collection.xpath('CommissionedOutstandingCollections//SubmittedAmount')[i].content,
-        date_of_export_to_debt_collection: collection.xpath('CommissionedOutstandingCollections//SubmissionDate')[i].content
       }
     end
+  end
+
+  def self.remove_blankspace(string)
+    string.gsub(/\s+/, "")
   end
 
   def self.validate_and_save_imported_debtors!(debtors)
